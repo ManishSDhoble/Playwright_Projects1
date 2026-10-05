@@ -1,0 +1,8 @@
+page.goto("https://demo.automationtesting.in/Alerts.html")
+page.goto("https://demoblaze.com/")
+page.goto("https://www.globalsqa.com/demo-site/draganddrop/#google_vignette")
+page.goto("https://demo.automationtesting.in/Register.html")
+page.goto("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login")
+page.goto("https://uncodemy.com/")
+page.goto("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login")
+

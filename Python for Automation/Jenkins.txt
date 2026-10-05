@@ -1,0 +1,122 @@
+Jenkins
+
+for continuous integration and for continuous deployment we are using Jenkins
+
+CI: continuous integration
+
+it is combination of continuous build + continuous test
+whenever developer commit the code using source code management like GIT , then the CI pipeline gets the change of the cofr run automatically build and unit test
+
+due to integrating the new code with old code , we can easily get to know the code is success or failure
+it finds the error more quickly 
+delivery the products to the client more frequently
+developer don't need to do manual tasks
+it reduces the developer time 20% to 30 %
+
+
+Jenkins continuous integration
+
+          GITHUB
+      |				|
+COMMIT CODE           BULID TRIGGERED AUTOMATICALLY
+
+
+DEVELOPER ----build failed teamnotified	JENKINS CI server
+
+
+                 COMMIT CODE
+   DEVELOPER ───────────────────► GITHUB
+                                    │
+                                    │ BUILD TRIGGERED
+                                    │ AUTOMATICALLY
+                                    ▼
+                            ┌─────────────────┐
+                            │  JENKINS CI     │
+                            │     SERVER      │
+                            └────────┬────────┘
+                                     │
+                                     ▼
+                              ┌─────────────┐
+                              │ BUILD / TEST│
+                              └──────┬──────┘
+                                     │
+                       ┌─────────────┴─────────────┐
+                       ▼                           ▼
+                BUILD SUCCESS                BUILD FAILED
+                       │                           │
+                       └─────────────┬─────────────┘
+                                     ▼
+                              TEAM NOTIFIED
+Continuous delivery
+
+CD is making it available for deployment, anytime a new build artifact is available,
+the artifact is automatically placed in the desired environment and deployed
+
+here , deployed to production is manual here
+
+continuous deployment
+
+CD is when you commit your code then its get automatically tested , build and deployed on production server
+it does not require approval 
+99% of customer dont follow this
+here, deploy to prod automatically
+
+CICD pipeline
+
+version control  -- build -- unit test -- deploy -- auto test -- deploy to production -- measure validate
+
+production feedback
+
+it looks like a software development life cycle (sdlc) here we are having 6 phases
+
+version control 
+
+here developer beed to wright code for web application so it needs to commited using version control system like git or svn
+
+BUild
+
+lets consider your code is written in java , it need to be compiled before execution, in this build step code gets compiled
+for build purpose we are using maven.
+
+Unit test
+
+if the build step is completed ,then move to testing phase in this step unit step will bedone
+here we csn use SonarQube /mvn test
+here , application / program components are perfectly worked / not we will checkinh in this testing
+overall ,it is code level testing
+
+
+deploy
+
+if the test step is completed ,then move to deploy phase
+in this step , you can deploy your code in dev , testing environment
+here you can see application output
+overall , we can deploying  our application in pre - prod server , so internally we can access
+
+auto test
+
+once your code is working fine in testing server , then we need to do automation testing 
+so overall it is application level testing
+using selenium or unit testing
+
+deploy to production
+
+if everything is fine then you can directly deploy your code in production srver
+
+because of this pipeline , bugs will be reported fast and get rectified so entire development is fast 
+here overall sdlc will be automatic using Jenkins
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

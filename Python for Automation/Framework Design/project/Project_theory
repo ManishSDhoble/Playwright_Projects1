@@ -1,0 +1,16 @@
+Projct/
+|----  pages/
+|----     |_______ test_locators.py
+          |_______  Locators_methods.py
+
+|----- tests/
+        |_______ test_login.py
+
+|----- config.py  -------------> URL
+|----- conftest.py  -----------------> Method for launching browser and URL
+|------ pytest.ini -------->Marker
+|------- Requirement.txt
+
+
+
+

@@ -1,0 +1,1127 @@
+python -m venv venv
+venv\Scripts\activate
+pip install playwright
+playwright install
+
+============
+pip install pytest playwright pytest-playwright
+playwright install
+pip install allure-pytest pytest-playwright
+pip install pytest-html
+====================
+
+pip install pytest playwright pytest-playwright
+playwright install
+pip install allure-pytest pytest-playwright
+pip install pytest-html
+pytest -m smoke --html=report.html --self-contained-html
+pytest  --html=report.html --self-contained-html
+
+Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+
+
+=====
+
+| Command                              | Description                                                |
+| ------------------------------------ | ---------------------------------------------------------- |
+| pytest                             | Run all tests in the current directory and subdirectories. |
+| pytest test_file.py                | Run all tests in a specific file.                          |
+| pytest test_file.py::test_function | Run a single test function.                                |
+| pytest test_file.py::TestClass     | Run all tests in a specific test class.                    |
+| pytest -v                          | Verbose output (shows each test name).                     |
+| pytest -q                          | Quiet output (minimal information).                        |
+| pytest -x                          | Stop after the first failure.                              |
+| pytest --maxfail=3                 | Stop after 3 failures.                                     |
+| pytest -k "login"                  | Run tests whose names match the keyword login.             |
+| pytest -m smoke                    | Run tests with the smoke marker.                           |
+| pytest --collect-only              | Show which tests will be collected without running them.   |
+| pytest -s                          | Display print() statements in the output.                |
+| pytest --tb=short                  | Show shorter tracebacks on failures.                       |
+| pytest --tb=no                     | Hide tracebacks.                                           |
+| pytest --lf                        | Run only the tests that failed in the previous run.        |
+| pytest --ff                        | Run previously failed tests first.                         |
+| pytest --durations=10              | Show the 10 slowest tests.                                 |
+| pytest --disable-warnings          | Suppress warning messages.                                 |
+| pytest --capture=no                | Disable output capturing (same effect as -s).            |
+| pytest -vv                         | Extra verbose output.                                      |
+
+
+=================
+
+
+Web elements
+Web elements can be divided into different types , namely:
+
+edit box: it is basic text control that enables a user to type a small amount of text.
+
+link : link is more appropriate referred to as a hyperlink and connects one web page to another. it allows the user to click their way from page to page.
+
+button : this represents a clickable button  which can be used in forms and places in the document that needs a simple, standard button functionality
+
+Image: it helps in performing action on images like clicking on image link or the image button, etc.
+
+text area : it is an inline element used yo designate a plain text editing control containing multiple lines.
+
+checkbox : this is selection box or a tick box which is small interactive box that can be toggled by a user to indicate an affirmative or a negative choice.
+
+Radio button : it is an option button which is graphical control element that allows the user to choose onyl one predefined set of mutually exclusive options.
+
+dropdown list: it is graphical control element, similar to the list box, which allows the user yo choose one value from the list. when this dropdown list is inactive, it displays only a single value.
+
+
+By.xpath()
+Xpath is one of the locator available in webpage.
+/ --> Abosolute path  ( it finds the webelement from the top of the downstream)
+// --> relative path ( it finds the webelement from that perticular tag.)
+
+Reason for going to xpath: 
+
+for validating the locator (we can check this in webelement by ctrl+F)
+when id,classname , name is not present.
+
+General syntax :
+
+//tagName[@attributeName='AttributeValue']
+
+If thee is more than one attribute value is same for same attribute names in the web element then we have to go for index (matching with more than one locator)
+
+General Syntax: 
+
+(//tagName[@attributeName='attributeValue'])[2]
+
+when we try to finf locstor , it only text is present then we go for text.
+
+text()
+
+//tagName[text()='textname']
+
+contains()
+
+//tagName[contains(text(),'partially text')]
+
+contains() using attribute
+
+//tagName[contains(@attributeNmae,'attributeValue')]
+
+Waiting & Timing
+Method	Description
+page.wait_for_selector(selector)	Wait until an element appears.
+page.wait_for_timeout(ms)	Wait fixed time (milliseconds).
+page.wait_for_load_state(state="load")	Wait for page load.
+locator.wait_for()	Wait for an element state.
+
+dropdown: 
+It is a web element consisting of multiple options under it.
+
+
+Types of dropdown:
+1.dropdown with select tagName
+2.Multiselect dropdown
+3.Customise dropdown
+4.mouse hover dropdown
+
+
+
+Frames:
+html embedded inside another html
+when any locator is placed inside the frame , we cannot directly access the locator
+first we need to switch into the frame, then only we can access frame.
+
+to switch into frame
+first we have to check frame is available in DOM or not
+
+R + click  ---> view frame source
+
+inspect --> ctrl + F -->  iframe  or //frameset etc
+
+
+
+git - ----> command line interface
+GitHub -----> WEB BASED	(CLI + GUI)
+GitHub desktop -----> GUI
+
+Open GitHub on browser
+create new repository
+go to project folder
+open cmd in the project path
+run below commands
+
+git init
+git add .
+git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/ManishSDhoble/Python.git
+git push -u origin main
+
+
+https://github.com/ManishSDhoble/Python.git
+git config --global user.name 
+git config --global user.email
+git config --list --show-origin
+
+
+GitHub desktop 
+
+open GitHub desktop 
+do the authentication part
+click on new repository
+publish the new repository
+click on open in explorer
+copy the project and paste it in local repository which will open after click on open in explorer
+give me commit summary and click on commit
+push to origin
+refresh the GitHub browser and check repository
+
+https://github.com/ManishSDhoble/playwright_framework.git
+
+
+
+git remote add origin https://github.com/ManishSDhoble/Python.git
+git branch -M main
+git push -u origin main
+
+Jenkins
+
+for continuous integration and for continuous deployment we are using Jenkins
+
+CI: continuous integration
+
+it is combination of continuous build + continuous test
+whenever developer commit the code using source code management like GIT , then the CI pipeline gets the change of the cofr run automatically build and unit test
+
+due to integrating the new code with old code , we can easily get to know the code is success or failure
+it finds the error more quickly 
+delivery the products to the client more frequently
+developer don't need to do manual tasks
+it reduces the developer time 20% to 30 %
+
+
+Jenkins continuous integration
+
+          GITHUB
+      |				|
+COMMIT CODE           BULID TRIGGERED AUTOMATICALLY
+
+
+DEVELOPER ----build failed teamnotified	JENKINS CI server
+
+ci server = build + test + deploy
+
+
+                 COMMIT CODE
+   DEVELOPER ───────────────────► GITHUB
+                                    │
+                                    │ BUILD TRIGGERED
+                                    │ AUTOMATICALLY
+                                    ▼
+                            ┌─────────────────┐
+                            │  JENKINS CI     │
+                            │     SERVER      │
+                            └────────┬────────┘
+                                     │
+                                     ▼
+                              ┌─────────────┐
+                              │ BUILD / TEST│
+                              └──────┬──────┘
+                                     │
+                       ┌─────────────┴─────────────┐
+                       ▼                           ▼
+                BUILD SUCCESS                BUILD FAILED
+                       │                           │
+                       └─────────────┬─────────────┘
+                                     ▼
+                              TEAM NOTIFIED
+Continuous delivery
+
+CD is making it available for deployment, anytime a new build artifact is available,
+the artifact is automatically placed in the desired environment and deployed
+
+here , deployed to production is manual here
+
+continuous deployment
+
+CD is when you commit your code then its get automatically tested , build and deployed on production server
+it does not require approval 
+99% of customer dont follow this
+here, deploy to prod automatically
+
+CICD pipeline
+
+version control  -- build -- unit test -- deploy -- auto test -- deploy to production -- measure validate
+
+production feedback
+
+it looks like a software development life cycle (sdlc) here we are having 6 phases
+
+version control 
+
+here developer beed to wright code for web application so it needs to commited using version control system like git or svn
+
+BUild
+
+lets consider your code is written in java , it need to be compiled before execution, in this build step code gets compiled
+for build purpose we are using maven.
+
+Unit test
+
+if the build step is completed ,then move to testing phase in this step unit step will bedone
+here we csn use SonarQube /mvn test
+here , application / program components are perfectly worked / not we will checkinh in this testing
+overall ,it is code level testing
+
+
+deploy
+
+if the test step is completed ,then move to deploy phase
+in this step , you can deploy your code in dev , testing environment
+here you can see application output
+overall , we can deploying  our application in pre - prod server , so internally we can access
+
+auto test
+
+once your code is working fine in testing server , then we need to do automation testing 
+so overall it is application level testing
+using selenium or unit testing
+
+deploy to production
+
+if everything is fine then you can directly deploy your code in production srver
+
+because of this pipeline , bugs will be reported fast and get rectified so entire development is fast 
+here overall sdlc will be automatic using Jenkins
+
+
+Jenkins
+
+The leading open source automation server , Jenkins provides hundreds of plugins to support building, deploying and automating any project.
+it is platform independent
+it is community - supported , free to use
+it is used for ci/cd
+if we want to continuous integration first choice is Jenkins
+it consist of plugins , through plugins we can do whatever we want, overall without plugins we cant run anything in Jenkins
+it is used to detect the faults in the software development
+it automates the code whatever developer commits
+the project was renamed Jenkins when oracle brought the microsystems
+main thing is it supports master and slave concepts
+it can run on any major platform without complexity issues
+whenever developer wright code we integrate all the code of all developers at any point and we build ,test and deliver/ deploy it to the client this is called ci/cd
+we can create the pipelines by our own 
+we have speed release cycles
+Jenkins default port number is 8080
+
+create a new job/ task
+
+job : to perform some set of tasks we use a job in Jenkins
+in Jenkins jobs are of two types
+
+Freestyle (old)
+pipeline(new)
+
+how to trgger Jenkins jobs?
+Jenkins job can be triggered either manually or automatically
+GitHub webhook
+build periodically
+poll SCM
+
+
+webhooks
+
+whenever developer commit the code that chsnge will be automatically applied in server ,fro this , we can use webhooks
+
+
+how to add webhooks from GitHub
+
+open repository  -- settings -- webhook -- add webhook -->
+
+payload url : jenkinsURL:8080/github-webhook/
+content-type : application/json
+click or add webhook
+
+so we are created webhooks from GitHub
+
+now we have to activate in Jenkins dashboard , here go to job -- configure --> select below option --> save
+
+
+Schedule a jobs:
+build periodically 
+
+select one job -- configure -- build periodically
+
+
+here it is working on "CRON SYNTAX"
+
+here we have 5 starts i.e.  *****
+
+1st star represents minutes
+2nd star represents hours (24 hours fromat)
+3rd star represents date
+4th star represents month
+5th star represemts day of the week
+
+i.e. sunday - 0 
+Monday - 1
+Tuesday - 2
+Wednesday - 3
+thurday -4 
+Friday - 5 
+Saturday -6
+
+eg. august 28 11:30 am sunday build has to be done
+30 11 28 08 0 -- copy this in build periodically
+
+if we give *****  5 star means   - at every minutes build will happen
+if we want every 5 minute build means */5 ****
+
+poll scm 
+select one job  ---configure -- select poll scm 
+
+it only works whenever the changes happened in git tool or GitHub
+
+we have to mention between the time like 9 am - 6 pm in a day
+some its also working on cron syntax
+eg. _*9-17 ***
+
+difference between webhooks , build periodically , poll SCM (FAQ)
+
+webhooks:
+
+whenever developer commits the code , on time only build will happen
+it is 24*7 no time limit
+it is also working based on GIT tool or GitHub
+
+
+poll Scm
+
+same as webhook, but here we have time limit
+only for git
+
+build periodically
+
+automatically build , whether the changes happen /not(24*7)
+it is used for all devops tools not only for git
+-it will support on every work
+even time as per our schedule
+
+
+master and slave architecture
+
+here the communication between these servers ,we will use master and slave communication
+
+here master is Jenkins server and slave is other servers
+Jenkins used a master - slave architecture to manage distributed builds
+in this architecture master and slave nodes communicate through TCP/IP protocol
+using slave,the jobs can be distributed and load on master reduces and Jenkins can run more concurrent jobs and can perform more.
+it allows set up various different environments such as java ,.net ,terraform etc
+it support various types of slaves
+
+Linux slaves
+window slaves
+docker slaves
+Kubernetes slaves
+ECS (AWS) Slaves
+
+if slave are not mean by default master only do the work.
+
+
+Jenkins pipeline
+
+jwnkins pipeline is a combination of plugins that supports integration and implementation of  continuous delivery pipeline 
+a pipeline is a group of events interlinked with each other in a sequence 
+here using groovy syntax we are writing a pipeline
+
+we have 3 types of pipelines
+
+freestyle pipeline
+scripted pipeline
+declarative pipeline 
+
+difference between freestyle and pipeline
+
+in pipeline, we are writing the script for deployment it is updated
+in freestyle we are having manual options, we can go through that, it is little bit old
+in real time we use 2 pipeline based on our requirement
+
+Jenkins files - it is nothing but it contains the scripted or declarative code
+
+
+scripted pipeline syntax
+
+eg.
+node {
+stage("stage 1"){
+echo "hi"
+}
+}
+
+declarative pipeline syntax
+
+pipeline {
+agent any
+stage{
+stage("code"){
+steps{
+echo "hi"
+}
+}
+}
+}
+
+here we are using declarative pipeline
+
+Pipeline
+
+agent
+
+stages
+ code
+ build
+ deploy
+
+here pipeline is a block
+in this block we have agents
+through agent we will decide in which server we have to run our tasks / job
+so here we created a label , through label we will define
+inside stagewe have multiple stages
+eg. code , build , deploy
+
+inside every stages we have one step
+inside the step we can write our code / commands
+
+launch Jenkins server and open dashboard
+
+create a job --> select pipeline -- > ok
+
+
+post build actions / function pipeline
+
+a Jenkins post build action is a task executed after the build has been completed
+
+when you perform build , you wont care about the build whether it is success or fail .automatically. you want to build the particular stage.
+on that case we are using post build actions
+
+
+here we are having post condition in Jenkins
+
+always 
+success
+failure
+
+
+success:
+when the above stage build gets success means, then the post block will executed
+
+failure:
+when the above stage build gets failed means, then the post block will executed
+
+always:
+when the above stage build either success or failure . this post don't carte it will always executed
+
+note: sometimes in build executor status under , it will shows one error. that is dependency issue. for that one you have to install the same java version in slave server , which we installed in master server 
+now create a pipeline for master - slave
+
+
+Jenkins build steps :
+python -m venv venv
+venv\Scripts\python -m pip install --upgrade pip
+venv\Scripts\python -m pip install -r requirements.txt
+venv\Scripts\python -m playwright install
+venv\Scripts\python -m pytest --html=report.html --self-contained-html
+
+--------------------------------------------------
+
+Api testing
+
+Layer and the request flow
+
+whenever a request is processed, it goes through 3 different layers , namely presentational layer with which the user is in direct interaction, the second is application layer also called api(application programming interface) and the database layer
+
+
+presentation layer                 application program interface           database layer 
+html , javascript , css             java , .net, c# , python , c++          mysql , oracle , postgresql , sql , server , mongoDB
+
+what is client and server
+
+A client is a computer hardware device or software that acceses a service mode available by a server. the server is often but not always located on a separate physical computer.
+
+a server a physical computer dedicated to run services to serve the needs of other computers. depending in service that is run , it could be a file server , database server.
+
+what is api : 
+
+application program interface api is a way of communication between applications where applications may differ in their platform or in terms of technology. they are basically a collection of functions and procedures which allows us to communicate two application or library.
+
+Types of API 
+
+SOAP API
+REST API
+
+SOAP API :
+
+SOAP simple object access protocol is a protocol used for exchanging structured information in the formm of XML between computers over a network , typically the internet , its a messsaging protocol that allows program running on different operating systems and platform to communicate with each other.
+
+Rest api:
+
+a rest is an acronym for representational state transfer.
+uniform interface : its  fundamental principle that defines the simplicity and consistency of the communication between clinet and servers.
+stateless : the stateless constraint is restful api design is a fundamental principle that enhances scalability , reliability and simplicity by eliminating the need for the server to store any client context between request.
+cacheable : this constraint enhances the performance , scalability and efficiency of the API by allowing intermediate cache(such as proxie or browsers) to store responses and serve them directly to subsequent requests without involveing the origin server/
+client server :
+layered system:
+code on demand : it allows a server to temporarily extend the functionality of a client by transferring executable code to the client , which the client then execute , this constraint enhances the flexibility and evaliability of the system by enabling the server to provide specialized functionality to the client on demand.
+
+What to test in API testing
+
+when doing api testing , there are few very immportant things to test:
+authentication and authorization : when working on API  every api will use authentication or authorization based on the documentatiion provided hence it is immportant to test an api for valid authentication or authorization
+
+validation messages : api will always give the validation messages according to the one mentioned in the requirement documents.
+
+response time : whenver a request is sent , there is a response to it. and the time taken to give the reponse is called response time.
+
+status code : one of the most important part to test in api testing is status code. status code basically tells what has exactly happened with the request , example : it is successful or failed  .if there is some syntax error or some error from server sided 
+
+headers: when a response is received there are different sections in it  and one amonf then is header , we test response headers along with their values.
+response body : there is a response for every request. hence there is a repsonse body . 
+cookies : just like headers , there can be cookies prensent in the response , we can test the api for the cookies
+
+
+
+Api vs webservices
+
+webservice is  nothing but API wrapped in httP
+When an api is not on internet , its not webservice
+all webservice are API but not all APIs ARE webservices
+All WEB SERVICES NEED A NETWORK  for operation but an API does not need network for its operation
+
+basic terminology:
+URL : uniform resource locator
+uri : uniform resource identifier
+urn : uniform resource name
+
+------------URI/URL------------------
+           -------------URI----------
+                     ------URN-------
+--SCHEMA----HOST ---------PATH-------
+HTTPS://GOOLGE/ARTICLE/ARTILCLENAME
+PROTOCOL   DOMAIN 
+
+
+HTTP vs HTTPS (with SSL/TLS) 
+HTTP (HYPERTEXT TRANSFER PROTOCOL )
+AND HTTPS (HYPER TEXT TRANSFER PROTOCOL SECURE) ARE BOTH PROTOCOLS USED FOR TRASNMITITNG DATA OVER INTERNET BUT THEY DIFFER IN TERMS OF SECURITY AND ENCRYPTION
+Your diagram compares what a browser sends to a web server over HTTP and over HTTPS.
+
+1. HTTP (HyperText Transfer Protocol)
+It is the protocol browsers and servers use to exchange web data, on port 80 by default.
+Data travels as plain text. In your diagram, the username and password are readable as they cross the network.
+Anyone between the browser and the server (public Wi-Fi, a router, an ISP, an attacker) can read or modify it. This is called a man-in-the-middle (MITM) or sniffing attack.
+It gives no proof that the server is who it claims to be.
+2. HTTPS (HTTP Secure)
+It is HTTP running over SSL/TLS, on port 443 by default.
+The same request is encrypted before it leaves the browser. In your diagram, the credentials appear as scrambled text like qhgVtu0873..., which is unreadable without the key.
+3. SSL/TLS
+SSL (Secure Sockets Layer) is the older protocol. TLS (Transport Layer Security) is its modern replacement, and today's "SSL" almost always means TLS 1.2 or 1.3.
+It provides three things:
+Encryption (confidentiality): data can't be read in transit.
+Integrity: data can't be altered without detection.
+Authentication: a certificate proves the server's identity.
+4. How the TLS handshake works
+Client Hello: the browser sends its supported TLS versions and cipher suites.
+Server Hello: the server picks a cipher suite and sends its SSL certificate (containing its public key).
+Certificate verification: the browser checks that the certificate is issued by a trusted Certificate Authority (CA), is not expired, and matches the domain.
+Key exchange: the browser and server agree on a shared session key.
+Secure communication: all further data is encrypted with the session key.
+5. Encryption types used
+Type	Used for	Example
+Asymmetric (public/private key pair)	Handshake and key exchange	RSA, ECDHE
+Symmetric (one shared key)	Encrypting the actual data, because it's much faster	AES
+6. SSL certificate
+
+A digital certificate issued by a CA. It contains the domain name, the owner's details, the public key, the issuer, and the validity period. Types include DV (Domain Validated), OV (Organization Validated) and EV (Extended Validation).
+
+7. Key differences
+Feature	HTTP	HTTPS
+Full form	HyperText Transfer Protocol	HyperText Transfer Protocol Secure
+Port	80	443
+Encryption	No	Yes (SSL/TLS)
+Data	Plain text	Encrypted
+Certificate	Not needed	Required
+Security	Vulnerable to sniffing and MITM	Protected
+URL	http://	https:// with a padlock
+Speed	Slightly faster (no handshake)	Slight overhead, minimal with TLS 1.3
+SEO	Ranked lower	Preferred by Google
+8. Why HTTPS matters
+It protects sensitive data such as passwords, card details and personal information.
+It builds user trust through the padlock icon.
+It is required for many modern features (HTTP/2, service workers, geolocation).
+It is mandatory for compliance standards such as PCI-DSS.
+Short answer for exams and interviews
+
+HTTP sends data in plain text and is insecure. HTTPS is HTTP secured with SSL/TLS, which encrypts data, verifies the server's identity through a certificate, and protects data integrity, so information such as usernames and passwords can't be read if it is intercepted.
+
+
+
+Security:
+
+HTTP: HTTP is not secure by default. It transmits data in plain text, making it vulnerable to interception and eavesdropping by malicious actors. Data transmitted over HTTP is not encrypted, which means that sensitive information, such as passwords or credit card numbers, can be easily intercepted.
+
+HTTPS: HTTPS is designed to provide a secure and encrypted connection between the client and the server. It uses SSL/TLS encryption to encrypt data transmitted over the network, preventing unauthorized access and ensuring the confidentiality and integrity of the data.
+
+Encryption:
+
+HTTP: HTTP does not encrypt data, so information sent over HTTP connections is transmitted in plain text, making it susceptible to interception and tampering.
+
+HTTPS: HTTPS encrypts data using SSL/TLS encryption, which ensures that data transmitted over HTTPS connections is secure and cannot be easily intercepted or tampered with by unauthorized parties.
+
+Authentication:
+
+HTTP: HTTP does not provide a mechanism for server authentication. Clients cannot verify the identity of the server they are communicating with, making HTTP connections susceptible to man-in-the-middle attacks.
+
+HTTPS: HTTPS uses SSL/TLS certificates to authenticate the identity of the server and establish a secure connection. Clients verify the server's certificate to ensure that they are communicating with the intended server and not an impostor.
+
+
+PORT : 
+HTTP : Http typically uses port 80 for communication
+https: https typically uses port 443 for communication
+
+
+HTTP METHOD : 
+http method also known as http verbs , are actions that client can request server to perform on resources. these methods define the type of operation to be perform on the resource identified by the url
+below are the few http methods
+http get request:
+
+it retrivees the all resources from a collection and it can be cached
+GET  request remains in browser history and can be bookmarked
+GET request should not be used with sensititve data
+get request should only be used to retrive data
+
+
+http post request : 
+it created a new resource in a collection
+post request are never cached and they do not remain in the browser history
+post request cannot be bookmarked
+
+http put request :
+it puts a file or resource at specific uri
+put replaces a file or resource 
+put responses are cacheable
+it is used to update a resource
+
+http patch request:
+ it is used to update a partial resource
+ when we only need to update only one field 
+
+ http delete request:
+
+ it is used to delete a resource
+
+
+ HTTP  opitions request: the options http request method is used to inquire about the communication option
+avaialble for a given resource or server
+it allows a client to determine the http methods and headers supported by the server for a particular resource without actually requesting the resource itself.
+
+http head request: 
+
+it is used to retrive the headers of the response
+
+it is often used to retrive metadata about a resource, such as its size, content type , or last modification date , without actually fetching the resources content
+
+http trace request : it returns traces of the request.
+
+
+Feature and resource 
+
+feature is a word used in manual testing to test some functionality and similarly resource is the term used in API automation testing referring some functionality
+payload:
+payload refers to the body in http request and response
+
+S1 – Client / Consumer
+        |
+        | HTTP Request
+        | URI
+        | Headers
+        | Payload
+        ↓
+S2 – Server / Producer
+        |
+        | Business Logic
+        ↓
+    Database
+        |
+        ↓
+S2 – Server
+        |
+        | HTTP Response
+        | Status Code
+        | Response Payload
+        | Response Message
+        ↓
+S1 – Client / Consumer
+
+
+HTTP client-server architecture is a communication model in which a client sends an HTTP request containing a URI, headers, and optionally a payload to a server. The server processes the request, interacts with the database when required, and returns an HTTP response containing a status code, response headers, and optionally a response payload. HTTP methods such as GET, POST, PUT, and DELETE define the operation to be performed.
+
+HTTP methods define what operation the client wants to perform.
+
+Method	Operation	Purpose
+POST	Create	Creates a new resource
+GET	Retrieve	Retrieves existing data
+PUT	Update	Updates an existing resource
+DELETE	Delete	Deletes a resource
+
+
+HTTP Request–Response Architecture — Theory
+
+The diagram represents a basic HTTP client-server architecture, where a client sends an HTTP request to a server, and the server processes the request, communicates with the database if required, and sends an HTTP response back to the client.
+
+1. S1 – Client / Consumer
+
+The client is the system or application that consumes the API.
+
+Examples:
+
+Web application
+Mobile application
+Postman
+Automation framework
+Another backend service
+
+The client sends an HTTP Request to the server.
+
+2. HTTP Request
+
+An HTTP request generally contains the following:
+
+1) URI
+
+URI (Uniform Resource Identifier) identifies the resource or API endpoint that the client wants to access.
+
+Example:
+
+https://example.com/api/customers/101
+2) Headers
+
+Headers provide additional information about the request.
+
+Examples:
+
+Content-Type: application/json
+Authorization: Bearer <token>
+Accept: application/json
+3) Payload / Body
+
+The payload contains the actual data sent to the server.
+
+Usually, APIs use JSON or XML.
+
+Example:
+
+{
+  "customerName": "John",
+  "accountType": "Savings"
+}
+3. S2 – Server / Producer
+
+The server receives and processes the HTTP request.
+
+The server is responsible for:
+
+Receiving the request
+Validating the request
+Authenticating/authorizing the client
+Processing business logic
+Communicating with the database
+Preparing the response
+Returning the HTTP response to the client
+
+For example, if the client requests customer details, the server receives the customer ID, queries the database, and returns the customer information.
+
+
+
+cookies:
+
+cookies are usually small text file, given id tags that are stored on your computers browser directory or programm data subfolders , below are few actions perfomed by cookies
+
+record the users browsing activity
+which pages were visited in the past 
+contain the name of the domain and lifetimes
+
+
+What is Authentication?
+
+Authentication in API testing refers to the process of verifying the identity of clients or users accessing an API. It ensures that only authorized individuals or systems are allowed to interact with the API and access its resources. Authentication is crucial for maintaining the security and integrity of an API and the data it manages.
+
+Different Types of Authentication
+No Auth
+Bearer Token
+Basic Auth
+Digest Auth
+NTLM Authentication
+OAuth 1.0 & OAuth 2.0
+Hawk Authentication
+AWS Signature
+
+Majorly the below Auth types are most commonly used
+
+No Auth
+
+No Auth: No Auth means that any HTTP or HTTPS request for GET, PUT or Post extra with no authentication required. They are open request with no privacy and open content. Anyone with the correct link and param can access the content by the request.
+
+Basic Auth
+
+Basic Auth: Basic access authentication is a method for an HTTP user agent (e.g. a web browser) to provide a username and password when making a request. In this, the credentials are not encrypted.
+
+Digest auth : digest auth is another authentication method used by most of the websites. in this digest access authentication is one of the aggreed upon methods a web server can use to negotiate credentials ,such as username or password with a users web browser . in the digest auth , method username and password are setn over the web after applying some hash function , therefore which makes it more secure over network.
+
+o oth 1.o and oauth 2.0 - they are the way for internet users to grant websites or application access to their information on other websites but without giving them the password. when u perform the oauth most of the time yuo have to get the access token from the websites after submitting the details like consumer key etc.
+so to make oauth 1.0 request yuo need to pass the consumer key ,secreats and access token ,token secret.
+
+OAuth 1.0 (left, 8 steps)
+
+Consumer fetches a Request Token from the Service Provider using Consumer Key + Consumer Secret + Callback URL
+Service Provider issues the Request Token
+Consumer redirects the user to the Provider for authorization
+User grants authorization (using Request Token + Callback URL)
+User is redirected back to the application
+Consumer exchanges the token for an Access Token (using a Verifier)
+Service Provider grants the Access Token
+Consumer creates the connection
+
+OAuth 2.0 (right, 6 steps — simpler)
+
+Consumer redirects the user to the Provider for authorization (using Client ID + Redirect URI + optional Scope)
+User grants authorization
+User is redirected back to the application (with an Authorization Grant)
+Consumer exchanges the Authorization Grant for an access grant
+Service Provider grants access (via Redirect URI + Authorization Grant)
+Consumer creates the connection
+
+Key differences illustrated:
+
+OAuth 2.0 eliminates the separate "Request Token" step — it goes straight to authorization
+OAuth 2.0 uses simpler credentials (Client ID instead of Consumer Key/Secret pairs)
+OAuth 2.0 removes the "Verifier" step, replacing it with a more streamlined Authorization Grant exchange
+Overall, OAuth 2.0 has fewer round trips (6 vs 8 steps) and relies on HTTPS for security rather than complex cryptographic signatures required in 1.0
+
+Bearer token: bearer tokens are the predominant type of access token used with oauth 2.0 yuo need to pass the token with request to get the response.
+
+Json overview : json (javascript object notation) is a lightweight data interchange format that is easy for humans to read and write and easy for machine to parse and generate
+
+reason why json is used in api:
+
+lightweight in comparison to pdf , word  ,txt
+provide encripted which provides security
+
+what is json:
+json is syntax for storing and exchanging data 
+basically it was designed for human readable data interchange
+json is text written with java script objject notation
+it has been extended from javascript scripting language
+it file extension is .json
+json media type is application /json 
+
+Json data type:
+
+data type defines the kind of data that can be stored and manipulated within a programming language or systems
+it acts as a type of container for variable
+
+there are different data types supported by json:
+numbers: number in json can be integer or floating type( 'year' : 2024)
+string : string are always written in double quotes. ex. {"name": "alexander"}
+boolean : vales in json can also be true / falise in small letter {"presnet":true}
+null: values in json can also be null ex: {"middlename":null}
+
+object: values in json can be object 
+
+Curly braces should hold objects
+array : values in json can be array
+
+Json syntax:
+
+below are few points to consider while writting a json body
+
+data should be in name / value pair
+data should be separate by commas 
+Curly braces should hold objects
+square brackets holds arrays
+
+Aspect	XML	JSON
+Type	Markup Language	Data Exchange Language
+Size/Speed	Larger, more verbose, slower	Smaller, less verbose, faster
+Parsing	Harder, requires XML parser	Easy — simple JS function, becomes a JS object
+API usage	SOAP and REST APIs	REST APIs only
+Encoding	Various formats	UTF-8 and UTF-16 only
+Typing	Data has no type	Data is typed (string, boolean, number, array, object, null)
+Structure support	Schema, namespace, metadata	No schema/namespace/metadata
+Data structure	Tree (hierarchical)	Map (key-value pairs)
+Extra functionality	XPath, XQuery, XSLT, Attributes	None additional
+DOM rendering	Readily rendered by DOM	Not readily rendered by DOM
+Arrays	Not supported	Supported
+
+What they have in common:
+
+Both are used for communication between servers and clients
+Both are widely used
+Both can be parsed by many programming languages
+Both can be fetched via XMLHttpRequest
+
+
+JSON Objects:
+Json object contains key/value pair. Each Key is represented as a key in Json and value can be of any type.
+The key and value are separated by colons. Each key/value pair is separated by comma.
+The curl braces represent Json.
+{ "employee": { "name": "Alexander", "year": 2024, "Present": true, "middlename": null } }
+Json Array:
+Json array represents ordered list of values.
+Json array can store string, number, Boolean or object in json array.
+In Json array, values must be separated by commas.
+The [ represents json array.
+
+
+Postman:
+
+postman is popular collaboration platform for api development . it provides a user friendly interface for building ,testing , and documenting apis.
+
+workspace in postman:
+by simple defination ,workspace in postman is a group of collections.
+in real time environment a workspace will be a place where all the collections of any particular project are kept.
+
+collection in postman:
+collection is basically a group of folders or api requests
+
+
+
+API Automation through POSTMAN
+Chai Assertion Library
+
+Chai is a popular assertion library for testing JavaScript code. It provides a clean and expressive syntax for defining assertions, making it easier to write and read test cases. Assertions are statements that verify whether certain conditions are true or not during the execution of a test.
+
+We can write function in 2 different ways:
+
+normal function :
+
+pm.test("Test case", function() {
+    //Assertion
+});
+
+arrow function : 
+pm.test("Test case", ()=>{
+    //Assertion
+});
+
+Note: The test case will always be written in the Test tab of Postman. In the updated version, it will be Post-response script.
+
+Validating the Status Code
+Test for the response status code:
+pm.test("Validate if status code is 200", () =>{
+    pm.response.to.have.status(200)
+});
+
+Now let us suppose, we do not have the exact status code to be there when the request is sent but we know that the request should pass as we are sending the valid data. In that case, we can write test case which can check if status code is any one from the list.
+
+pm.test("Validate the test is passing", () =>{
+    pm.expect(pm.response.code).to.be.oneOf([200,201,202,204]);
+});
+
+If we see different status codes, whether they are for passing or failing. There is some string there with the status code. For example 200 OK, 201 Created, etc. To check these strings we can write below test.
+
+pm.test("Validate if status code contains OK", () =>{
+    pm.response.to.have.status("OK");
+});
+pm.test("Validate if status code contains OK", () =>{
+    pm.response.to.have.status("OK");
+});
+
+Validating headers :
+
+test case for validating headers keys. the same can be written for any header key.
+
+pm.test("validating the content-type exist in the response headers", ()=> {
+
+        pm.response.to.have.header("content-type");
+
+
+});
+
+test case for validating the value present in the particular key.
+
+pm.test("Validating the Content-type value is application/json", () => {
+    pm.expect(pm.response.headers.get("Content-Type")).to.eql("application/json");
+});
+
+
+
+• Test for a particular cookie value:
+
+pm.test("Validate if language cookie has value 'en-gb'", () => {
+    pm.expect(pm.cookies.get('language')).to.eql('en-gb');
+});
+
+
+Validating the response time:
+
+• Test to ensure the response time is within the specified range.
+
+pm.test("Validate response time is below 500ms", () => {
+    pm.expect(pm.response.responseTime).to.be.below(500);
+});
+
+
+Validating the response body data type and values:
+
+Example Json Body:
+
+{
+    "employee": {
+        "id": "1",
+        "name": "Mike",
+        "location": "India",
+        ...
+    }
+}
+
+
+Different types of variables and scope:
+Global Variables: Those variables which can be used all through the workspace, which is in all the collections and folders of the workspace, are global variables.
+Collection Variables: Those variables which can be used all through the collection in which they are created, in all the requests and folders are collection variables.
+Environment Variables: The variables which can be used all throughout the workspace in a particular environment in which they are created are environment variables.
+Local Variables: The variables which can be used in a particular request are called local variables.
+Data Variables: When we do data-driven testing, the variables used at that time are called data-driven variables. We will study further.
+
+API chaining :
+This diagram shows a chained API test flow for user CRUD operations, where the output of one request feeds the next. Here's how it reads:
+
+1. Create User (POST)
+
+Request body: name, gender, email, status
+Response gives back a generated id, which is the key piece that drives everything else.
+
+2. Get User (GET)
+
+Uses the id from Create as the path parameter.
+Response returns id, name, email.
+Compare: the returned values are validated against the original payload you sent in Create (name and email should match). Note that gender and status aren't in the Get response shown here, so only the fields that come back can be compared.
+
+3. Update User (PUT/PATCH)
+
+Uses the same id.
+Request body: name, email, status (the fields being modified).
+
+4. Delete User (DELETE)
+
+Uses the same id to remove the record.
+
+The key idea: the id is captured once from the Create response and reused across Get, Update and Delete, so each test depends on the data created by the previous one. In Postman you'd store it in a variable (pm.environment.set("userId", pm.response.json().id)), and in REST Assured you'd extract it from the response and pass it along.
+
+Good validations to add at each step:
+
+Create: status code 201, id is present and not null
+Get: status code 200, response fields match the Create payload
+Update: status code 200, updated fields reflect the new values; a follow-up Get confirms persistence
+Delete: status code 204 (or 200), and a follow-up Get returns 404
+
+This pattern looks like the GoRest-style user API commonly used in API automation training. If you'd like, I can write this flow out as a Postman collection with scripts, or as REST Assured/Python code.
+
+Data Driven Testing: Data-driven testing in API testing with Postman involves running the same test scenario with multiple sets of input data through an external file. The external file will be csv here as it is the most preferred.
+
+Swagger, now known as the OpenAPI Specification (OAS), is a standard format for describing RESTful APIs. It provides a way to document, design, and visualize APIs in a machine-readable format that is both human-readable and easily understandable by tools and systems.
+

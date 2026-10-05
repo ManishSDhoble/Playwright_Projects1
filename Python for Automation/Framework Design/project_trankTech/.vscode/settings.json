@@ -1,0 +1,7 @@
+{
+    "python-envs.defaultEnvManager": "ms-python.python:venv",
+    "python.defaultInterpreterPath": "D:\\Python for Automation\\Framework Design\\project_trankTech\\venv\\Scripts\\python.exe",
+    "python.analysis.extraPaths": [
+        "D:\\Python for Automation\\Framework Design\\project_trankTech"
+    ]
+}
